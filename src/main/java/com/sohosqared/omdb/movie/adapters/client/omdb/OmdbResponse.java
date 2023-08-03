@@ -8,7 +8,7 @@ public class OmdbResponse {
     @JsonProperty("Title")
     public String title;
     @JsonProperty("Year")
-    public int year;
+    public String year;
     @JsonProperty("Rated")
     public String rated;
     @JsonProperty("Released")

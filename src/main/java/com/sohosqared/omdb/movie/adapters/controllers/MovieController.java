@@ -2,6 +2,7 @@ package com.sohosqared.omdb.movie.adapters.controllers;
 
 import com.sohosqared.omdb.movie.application.MovieDescription;
 import com.sohosqared.omdb.movie.domain.Movie;
+import jakarta.annotation.Nonnull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +22,7 @@ public class MovieController {
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public Flux<Movie> findMovie(@RequestParam String search, @RequestParam String apiKey) {
+    public Flux<Movie> findMovie(@Nonnull @RequestParam String search, @Nonnull  @RequestParam String apiKey) {
         return service.findMovie(search, apiKey);
     }
 }

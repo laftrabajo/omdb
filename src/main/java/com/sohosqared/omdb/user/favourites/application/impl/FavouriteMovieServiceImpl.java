@@ -1,5 +1,7 @@
 package com.sohosqared.omdb.user.favourites.application.impl;
 
+import com.sohosqared.omdb.movie.application.MovieService;
+import com.sohosqared.omdb.movie.domain.Movie;
 import com.sohosqared.omdb.user.favourites.adapters.persistence.FavouriteAdapter;
 import com.sohosqared.omdb.user.favourites.application.FavouriteMovieDescription;
 import com.sohosqared.omdb.user.favourites.application.FavouriteMovieService;
@@ -13,14 +15,13 @@ import reactor.core.publisher.Mono;
 public class FavouriteMovieServiceImpl implements FavouriteMovieDescription {
 
     private final FavouriteMovieService service;
-
-    public FavouriteMovieServiceImpl(@Autowired FavouriteAdapter persistence) {
-        service = new FavouriteMovieService(persistence);
+    public FavouriteMovieServiceImpl(@Autowired FavouriteAdapter persistence,@Autowired MovieService movieService) {
+        service = new FavouriteMovieService(persistence, movieService);
     }
 
     @Override
-    public Flux<Favourite> getUserFavourites(String userId) {
-        return service.getUserFavourites(userId);
+    public Flux<Movie> getUserFavourites(String userId, String apiKey) {
+        return service.getUserFavourites(userId, apiKey);
     }
 
     @Override

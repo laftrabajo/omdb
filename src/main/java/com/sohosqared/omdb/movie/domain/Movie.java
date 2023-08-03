@@ -1,3 +1,3 @@
 package com.sohosqared.omdb.movie.domain;
 
-public record Movie(String mdbId, String title, int year, String genre, String language, String plot) { }
+public record Movie(String mdbId, String title, String year, String genre, String language, String plot) { }
